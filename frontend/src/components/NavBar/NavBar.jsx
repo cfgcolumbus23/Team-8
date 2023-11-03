@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import LoginRegister from './LoginRegister'
 
 const isAuth = false; //placeholder
 
@@ -17,8 +18,7 @@ const NavBar = () => {
                 <Nav.Link href="#Lessons">Lessons</Nav.Link>
                 <Nav.Link href="#ProgressPath">Progress Path</Nav.Link>
                 <Nav.Link href="#Profile">Profile</Nav.Link>
-                <Nav.Link href="#Login">Login</Nav.Link>
-                <Nav.Link href="#Register">Register</Nav.Link>
+                <LoginRegister auth = {isAuth}/>
               </Nav>
             </Navbar.Collapse>
           </Container>
