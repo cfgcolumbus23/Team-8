@@ -59,8 +59,6 @@ function LogIn() {
         />
       </div>
       <button onClick={handleLogin}>Login</button>
-
-
     </div>
   );
 }

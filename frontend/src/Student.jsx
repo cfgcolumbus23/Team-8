@@ -6,6 +6,7 @@ const Student = () => {
     return (
         <div className="main-con">
             <div className="road-map">
+            
             <div className="card-container">
                 <div className="card">
                     <h1>Topic 1</h1>
@@ -22,6 +23,7 @@ const Student = () => {
                 </div>
             </div>
         </div>
+        
         </div>
     );
 }
