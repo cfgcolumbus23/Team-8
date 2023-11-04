@@ -5,6 +5,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar"
 import Lessons from "./pages/Lessons/Lessons"
+import Dashboard from './pages/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const topic1 = {
@@ -57,6 +58,9 @@ function App() {
         <NavBar/>
         <body>
         <BrowserRouter>
+          <Routes>
+            <Route path="/Dashboard" element={Dashboard()}/>
+          </Routes>
         <Routes>
           <Route path="/Lessons" element={<Lessons topics={tempTopics}/>}/>
         </Routes>
