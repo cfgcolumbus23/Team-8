@@ -52,8 +52,6 @@ const topic2 = {
 const tempTopics = [topic1, topic2];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
@@ -76,4 +74,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
