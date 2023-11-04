@@ -6,13 +6,21 @@ import Button from '@mui/material/Button'
 
 import { LessonsList } from '../../components/Lesson/LessonsList';
 import { Container } from '@mui/material';
-import { LessonDeck } from '../../components/Lesson/ListDeck';
+import { LessonDeck } from '../../components/Lesson/LessonDeck';
 import { useMemo } from 'react';
 import ReactDOM from "react-dom";
 
 
+
 const Lessons = (props) => {
     const [count, setCount] = useState(100);
+
+
+    const [topics, setTopics] = useState([]);
+    const [lessons, setLessons] = useState([]);
+
+
+
 
     const handleTopicClick = () => {
         const newTopic = {
@@ -26,12 +34,22 @@ const Lessons = (props) => {
 
         
         (async () => {
-            const response = await fetch('http://localhost:3000/topic/all');
-            const data = await response.json();
+            const topicsResponse = await fetch('http://localhost:3000/topic/all');
+            const topicsData = await topicsResponse.json();
     
+            const lessonsResponse = await fetch('http://localhost:3000/lesson/all');
+            const lessonsData = await lessonsResponse.json();
+    
+            setTopics(topicsData);
+            setLessons(lessonsData);
+
+
+
 
             // console.log
-            console.log(data);
+            console.log(topics)
+            console.log(lessons)
+            ;
         })();
 
   
@@ -48,11 +66,11 @@ const Lessons = (props) => {
         })
     }
 
-    const topicList = props.topics.map((topic) =>
+    const topicList = topics.map((topic) =>
         <Accordion>
-            <AccordionSummary>{topic.name}</AccordionSummary>
+            <AccordionSummary sx={{ fontSize: 20 }}>{topic.topic_name}</AccordionSummary>
             <AccordionDetails>{
-                <LessonsList lessons={topic.lessons} />} 
+                <LessonsList lessons={lessons.filter(lesson => lesson.topic_id == topic.topic_id)} />} 
             </AccordionDetails> 
         </Accordion>
     );

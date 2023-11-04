@@ -5,9 +5,9 @@ const { db } = require('../db');
 const createProgressTable = `
     CREATE TABLE IF NOT EXISTS progress (
         email VARCHAR(50),
+        topic_id INT,
         lesson_id INT,
-        score INT,
-        PRIMARY KEY (email, lesson_id)
+        PRIMARY KEY (email, topic_id, lesson_id)
     );
 `;
 
@@ -25,11 +25,11 @@ class ProgressAccessor {
     
     }
 
-    static async put(email, lesson_id, score) {
+    static async put(email, topic_id, lesson_id) {
 
         await db.query(createProgressTable);
     
-        let data = await db.query(`INSERT into progress (email, lesson_id, score) VALUES ($1, $2, $3) RETURNING lesson_id;`, [email, lesson_id, score]);
+        let data = await db.query(`INSERT into progress (email, topic_id, lesson_id) VALUES ($1, $2, $3) RETURNING lesson_id;`, [email, topic_id, lesson_id]);
 
         return data.rows[0];
 

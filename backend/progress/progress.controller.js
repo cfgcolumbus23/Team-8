@@ -18,28 +18,14 @@ class ProgressController {
 
         console.log(req.body);
 
-        const { email, lesson_id, score }  = req.body;
+        const { email, topic_id, lesson_id }  = req.body;
 
-        await ProgressAccessor.put(email, lesson_id, score);
+        await ProgressAccessor.put( email, topic_id, lesson_id );
 
-        res.send(result);
+        res.send({ success: true  });
 
     }
-
-    // static async handleDelete(req, res) {
-
-    //     const { lesson_id } = req.body;
-
-    //     if (await LessonAccessor.delete(lesson_id)) {
-    //         res.send({ success: true });
-    //         return;
-    //     }
-
-    //     res.send({ success: false });
-
-    // }
-
-
+    
 }
 
 module.exports = {

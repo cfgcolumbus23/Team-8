@@ -19,6 +19,9 @@ class TopicAccessor {
     }
 
     static async addTopic(topicName) {
+
+        await db.query(createTopicTable);
+
         try {
             const { topic_id, topic_name } = topicName;
             
