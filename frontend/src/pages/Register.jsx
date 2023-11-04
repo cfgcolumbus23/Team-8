@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import put from '../../backendHelper';
+import './stylesheet.css'
+
 
 function Register() {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
     email: '',
+    password: '',
     // Add other form fields here
   });
 
@@ -14,7 +17,7 @@ function Register() {
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
-    }));
+    }))
   };
 
   const handleSubmit = async () => {
@@ -68,10 +71,21 @@ function Register() {
           id="email"
         />
       </div>
-      {/* Add other form fields here */}
       <div>
-        <input type="checkbox" required /> I agree to the terms and conditions.
+        <label>Password:</label>
+        <input
+          type="text"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          id="password"
+        />
       </div>
+      <div>
+        <input 
+          type="checkbox" required /> I agree to the terms and conditions.
+      </div>
+      {/* Add other form fields here */}
       <button className="register-info" id="submit">
         Register
       </button>
