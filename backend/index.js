@@ -11,6 +11,8 @@ const { userRouter } = require('./user/user.router');
 app.use(cors());
 app.use(express.json());
 app.use('/user', userRouter);
+app.use('/topic', topicRouter);
+
 // app.use('/login', userRouter);
 
 app.listen(port, async () => {
