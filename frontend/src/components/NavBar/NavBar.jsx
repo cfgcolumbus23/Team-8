@@ -8,7 +8,7 @@ const isAuth = false; //placeholder
 
 const NavBar = () => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg">
           <Container>
             <Navbar.Brand href="Dashboard">CTRL - R</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
