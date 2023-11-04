@@ -1,41 +1,26 @@
 /* Student.css */
-.student-roadmap {
+
+.road-map {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    gap: 20px;
-  }
-  
-  .roadmap-card {
-    width: 200px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: center;
-    position: relative;
-    background-color: #f2f2f2;
-  }
-  
-  .arrow-down {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 1px solid #ccc;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #fff;
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-  }
-  
-  .arrow-down a {
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .arrow-down a:hover {
-    color: #007bff;
-  }
-  
+    width: 100%;
+    border: 2px solid black;
+    min-width: 1000px;
+    height: 100vh; /* Ensure each card container takes up the full viewport height */
+}
+
+.card-container {
+    flex: 1;
+    width: 100%;
+    background-color: #f2f2f2; /* Set the background color of each card container */
+    /* min-width: 1000px; */
+    border: 2px solid black;
+    /* margin-right: auto; */
+    /* margin-bottom: 10px; Add margin to separate card containers */
+}
+
+.card {
+    padding: 20px;
+    /* Add other styling for your card content */
+}
