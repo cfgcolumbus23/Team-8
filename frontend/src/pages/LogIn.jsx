@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { mockAdminEmail,mockAdminPassword , mockStudentEmail, mockStudentPassword} from './MockLogin';
+import './LogIn.css'
+// Mock email and password
 
 function LogIn() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -15,19 +19,26 @@ function LogIn() {
   };
 
   const handleLogin = () => {
-    // You can add your login logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
-
-    // Redirect to the dashboard route after successful login
-    navigate('/dashboard');
+    // Check if the entered username and password match the mock email and password
+    if (username === mockAdminEmail && password === mockAdminPassword) {
+      // Redirect to the dashboard route after successful login
+      navigate('/dashboard');
+    } else {
+      // Handle login failure (e.g., display an error message)
+      if (username === mockStudentEmail && password === mockStudentPassword) {
+        // Redirect to the dashboard route after successful login
+        navigate('/Survey');  
+      } else {
+        setError('Login failed. Please check your email and password.');
+      }
+    }
   };
 
   return (
     <div className="LogIn">
       <h1>Login</h1>
       <div>
-        <label>Username:</label>
+        <label>Email:</label>
         <input
           type="text"
           value={username}
