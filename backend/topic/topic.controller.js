@@ -5,18 +5,30 @@ class TopicController {
 
     static async handleGetAll(req, res) {
         
+        try {
+        
         let data = await TopicAccessor.getAll();
 
         res.send(data);
+
+        } catch (e) {
+            res.status(500).send({ error: true});
+        }
 
     }
 
     static async handleUpdate(req, res) {
 
+        try {
+
 
         let data = await TopicAccessor.updateTopicName(req.body.topic_id, req.body.topic_name);
 
         res.send(data);
+
+        } catch (e) {
+            res.status(500).send({ error: true});
+        }
 
     }
 
