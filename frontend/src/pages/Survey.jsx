@@ -5,11 +5,11 @@ function QuizPage() {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState(Array(5).fill('')); // Adjust the number of questions as needed
   const questions = [
-    'Question 1: What is the capital of France?',
-    'Question 2: What is 2 + 2?',
-    'Question 3: Who wrote "Romeo and Juliet"?',
-    'Question 4: What is the largest planet in our solar system?',
-    'Question 5: What is the chemical symbol for water?',
+    'Question 1: What is a Computer used for.',
+    'Question 2: What is a mouse and trackpad used for?',
+    'Question 3: What is a monitor?',
+    'Question 4: What is bluetooth?',
+    'Question 5: What is local hotspot?',
   ]; // Add your questions here
 
   const handleAnswerChange = (index, answer) => {

@@ -1,11 +1,6 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The front-end of this project uses React.js to provide the user-facing side of the project as well as connect to the database on the backend.  Connections are made using fetch.
+There are other useful files present including:
+  frontend/backendHelper.js - provides a framework for connecting to the PostgreSQL database using axios, streamlining the front-to-back connection for code in the front-end side of the project.
 
 #App.jsx - Routing
 The App.jsx component serves as the entry point for your React application. It plays a crucial role in handling routing by using the "Routes" mechanism to navigate between different pages within the application. Each of the application's pages is returned and routed from this component.
