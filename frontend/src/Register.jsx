@@ -1,108 +1,82 @@
-import React, { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import { useRoutes } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import {
-  // BrowserRouter as Router,
-  BrowserRouter,
-  Link,
-  Route,
-  Routes
-} from 'react-router-dom'
-
+import React, { useState, useEffect } from 'react';
+import put from '../backendHelper';
 
 function Register() {
-  const navigate = useNavigate(); 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    // Add other form fields here
+  });
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+  const handleSubmit = async () => {
+    try {
+      const response = await put('/api/endpoint', formData);
+      console.log('Response from the server:', response);
+      // Handle the response as needed
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle errors if necessary
+    }
   };
 
-  const handleFirstNameChange = (event) => {
-    setFirstName(event.target.value);
-  };
+  useEffect(() => {
+    document.getElementById('submit').addEventListener('click', (event) => {
+      event.preventDefault();
+      handleSubmit();
+    });
+  }, []); // The empty dependency array ensures the effect runs once when the component is mounted
 
-  const handleLastNameChange = (event) => {
-    setLastName(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleRegister = () => {
-
-    navigate('/StudentPortal');
-
-    // You can add your login logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
-    console.log('First Name:', firstName);
-    console.log('Last Name', lastName);
-    console.log('Email Address', email);
-
-    // Redirect to the dashboard page
-  };
   return (
     <div className="Register">
-
-
-
-              <h1>Register</h1>
-        <div>
+      <h1>Register</h1>
+      <div>
         <label>First Name:</label>
         <input
           type="text"
-          value={firstName}
-          onChange={handleFirstNameChange}
+          name="firstname"
+          value={formData.firstname}
+          onChange={handleChange}
+          id="firstname"
         />
       </div>
       <div>
         <label>Last Name:</label>
         <input
           type="text"
-          value={lastName}
-          onChange={handleLastNameChange}
+          name="lastname"
+          value={formData.lastname}
+          onChange={handleChange}
+          id="lastname"
         />
       </div>
       <div>
         <label>Email Address:</label>
         <input
           type="text"
-          value={email}
-          onChange={handleEmailChange}
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          id="email"
         />
       </div>
+      {/* Add other form fields here */}
       <div>
-        <label>Username:</label>
-        <input
-          type="text"
-          value={username}
-          onChange={handleUsernameChange}
-        />
+        <input type="checkbox" required /> I agree to the terms and conditions.
       </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-        />
-      </div>
-      <button onClick={handleRegister}>Register</button>
-
-
+      <button className="register-info" id="submit">
+        Register
+      </button>
     </div>
   );
 }
+
 export default Register;
