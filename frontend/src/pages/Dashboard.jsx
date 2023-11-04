@@ -181,7 +181,7 @@ function Dashboard() {
         <div>
             <h1>Dashboard</h1>
             <ReactSearchBox 
-                placeholder="Search"
+                placeholder="Enter student number or name"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e)}
             />
