@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Card from '@mui/material/Card'
 import { CardActions, CardContent, Typography, Button } from '@mui/material'
 import ReactSearchBox from 'react-search-box'
+import { useNavigate } from 'react-router-dom'
 
 function Dashboard() {
     const [students, setStudents] = useState([])
@@ -9,6 +10,8 @@ function Dashboard() {
     const [topics, setTopics] = useState([])
     const NullTopic = { id: 0, title: '<none>', description: '<none>' }
     const [searchValue, setSearchValue] = useState('')
+
+    
 
     function getStudents() {
         // fetch('/students')

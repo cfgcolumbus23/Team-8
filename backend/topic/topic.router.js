@@ -4,13 +4,8 @@ const { TopicController } = require('./topic.controller');
 let router = Router();
 
 
-
-
-
 router.get('/all', TopicController.handleGetAll)
 router.put('/info', TopicController.handleAdd);
-
-
 
 
 module.exports = {

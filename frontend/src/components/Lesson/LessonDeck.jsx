@@ -16,34 +16,46 @@ export function LessonDeck(props) {
     console.log(content);
 
 
+
     const moveBackward = () => setPage(Math.max(0, page - 1));
     const moveForward = () => {
         setPage(Math.min(data.length - 1, page + 1))
     };
 
 
-
-    useEffect(() => {
-
+    let updateProgress = () => {
         if (page == data.length - 1) {
-
             (async () => {
 
 
                 const userData = JSON.parse(sessionStorage.getItem("userData"));
 
 
-                console.log(userData);
+                // fetch('http://localhost:3000/progress/lesson', { m });
 
-                
+                const response = await fetch('http://localhost:3000/progress/lesson', { 
+                    method: 'PUT', 
+                    body: JSON.stringify({ 
+                        email: userData.email,
+                        topic_id: content.topic_id,
+                        lesson_id: content.lesson_id
+                    }),
+                    headers: {'Content-Type': 'application/json'}
+                  });
+
+                console.log(userData);
 
 
             })();
-
-
         }
+    }
 
-    }, [page])
+    updateProgress();
+
+
+    useEffect(() => {
+       updateProgress();
+    }, [page]);
 
     return <>
         {/* sx={{ fontSize: 18, textAlign: 'left' }} */}

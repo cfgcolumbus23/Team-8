@@ -18,7 +18,7 @@ const Lessons = (props) => {
 
     const [topics, setTopics] = useState([]);
     const [lessons, setLessons] = useState([]);
-
+    const [progress, setProgress] = useState([]);
 
 
 
@@ -40,9 +40,26 @@ const Lessons = (props) => {
             const lessonsResponse = await fetch('http://localhost:3000/lesson/all');
             const lessonsData = await lessonsResponse.json();
     
+            const userData = JSON.parse(sessionStorage.getItem("userData"));
+
+            console.log(userData);
+
+            const progressResponse = await fetch('http://localhost:3000/progress/completed', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: userData ? userData.email : ''
+                }),
+                headers: {'Content-Type': 'application/json'}
+            });
+            const progressData = await progressResponse.json();
+
+            console.log(progressData);
+    
+
+
             setTopics(topicsData);
             setLessons(lessonsData);
-
+            setProgress(progressData);
 
 
 
@@ -70,7 +87,7 @@ const Lessons = (props) => {
         <Accordion>
             <AccordionSummary sx={{ fontSize: 20 }}>{topic.topic_name}</AccordionSummary>
             <AccordionDetails>{
-                <LessonsList lessons={lessons.filter(lesson => lesson.topic_id == topic.topic_id)} />} 
+                <LessonsList progress={progress.filter(p => p.topic_id == topic.topic_id)} lessons={lessons.filter(lesson => lesson.topic_id == topic.topic_id)} />} 
             </AccordionDetails> 
         </Accordion>
     );

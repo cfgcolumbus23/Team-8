@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { BrowserRouter, Routes, Route, redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route, redirect, useNavigate } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar"
 import Lessons from "./pages/Lessons/Lessons"
 import Dashboard from './pages/Dashboard';
@@ -45,8 +45,16 @@ function App() {
   const [userData, setUserData] = useState(false);
   const [currentLesson, setCurrentLesson] = useState([]);
 
+  const navigate = useNavigate();
 
 
+  // useEffect(() => {
+  //   if (!userData) {
+  //     navigate('/login');
+
+  //   }
+  //     // redirect('/login');
+  // }, []);
 
 
   useEffect(() => {
