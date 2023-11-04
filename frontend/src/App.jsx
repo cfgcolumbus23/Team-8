@@ -4,16 +4,19 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NavBar from "./components/NavBar/NavBar"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { LessonsPage } from './components/Lesson/LessonsList'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
+      {/* <div>
         <NavBar/>
         <body></body>
-      </div>
+      </div> */}
+
+      <LessonsPage/>
     </>
   )
 }
