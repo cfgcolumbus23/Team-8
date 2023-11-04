@@ -1,9 +1,10 @@
-const axios = require('axios');
+import axios from 'axios'
 
 const baseURL = 'https://localhost:3000'; // Replace with your API base URL
 
-const instance = axios.create({
-  baseURL,
+const instance = axios.create ({
+  baseURL: baseURL,
+  timeout: 5000,
 });
 
 // make a GET request
@@ -26,8 +27,9 @@ async function put(endpoint, data = {}) {
   }
 }
 
-module.exports = {
+export default {
   get,
   put,
 };
+
 
