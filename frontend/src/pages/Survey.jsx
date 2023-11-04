@@ -21,7 +21,7 @@ function QuizPage() {
   const handleSubmit = () => {
     // You can add validation logic here if needed.
     // Once the user clicks "Submit," redirect to the lesson page.
-    navigate('/lesson');
+    navigate('/Lessons');
   };
 
   return (

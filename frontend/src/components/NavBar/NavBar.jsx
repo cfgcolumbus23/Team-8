@@ -10,7 +10,7 @@ const NavBar = (props) => {
     return (
         <Navbar expand="lg">
           <Container>
-            <Navbar.Brand href="Dashboard">CTRL - R</Navbar.Brand>
+            <Navbar.Brand href="Login">CTRL - R</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav>

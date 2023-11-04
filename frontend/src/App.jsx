@@ -89,7 +89,7 @@ function App() {
             <Route path="/Login" element={<LogIn loginHandler={ loginHander }/>}/>
             <Route path="/Dashboard" element={Dashboard()}/>
             <Route path="/Lessons" element={<Lessons topics={tempTopics}/>}/>
-          {/* <Route path="/Survey" element={<Survey topics={tempTopics}/>}/> */}
+            <Route path="/Survey" element={<Survey topics={tempTopics}/>}/>
         </Routes>
         </body>
       </div>

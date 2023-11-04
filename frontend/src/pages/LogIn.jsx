@@ -37,6 +37,10 @@ function LogIn(props) {
     if (data.error)
       return;
 
+    // let data = {
+    //   is_admin: username === mockAdminEmail,
+    // }
+
     if (data.is_admin) {
       navigate('/dashboard')
     } else {
@@ -68,18 +72,18 @@ function LogIn(props) {
 
 
     // Check if the entered username and password match the mock email and password
-    // if (username === mockAdminEmail && password === mockAdminPassword) {
-    //   // Redirect to the dashboard route after successful login
-    //   navigate('/dashboard');
-    // } else {
-    //   // Handle login failure (e.g., display an error message)
-    //   if (username === mockStudentEmail && password === mockStudentPassword) {
-    //     // Redirect to the dashboard route after successful login
-    //     navigate('/Survey');  
-    //   } else {
-    //     setError('Login failed. Please check your email and password.');
-    //   }
-    // }
+    if (username === mockAdminEmail && password === mockAdminPassword) {
+      // Redirect to the dashboard route after successful login
+      navigate('/dashboard');
+    } else {
+      // Handle login failure (e.g., display an error message)
+      if (username === mockStudentEmail && password === mockStudentPassword) {
+        // Redirect to the dashboard route after successful login
+        navigate('/Survey');  
+      } else {
+        setError('Login failed. Please check your email and password.');
+      }
+    }
   };
 
   return (
