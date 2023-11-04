@@ -21,8 +21,10 @@ function Register() {
     try {
       const response = await put('/api/endpoint', formData);
       console.log('Response from the server:', response);
+      // Handle the response as needed
     } catch (error) {
       console.error('Error:', error);
+      // Handle errors if necessary
     }
   };
 
@@ -31,7 +33,7 @@ function Register() {
       event.preventDefault();
       handleSubmit();
     });
-  }, []);
+  }, []); // The empty dependency array ensures the effect runs once when the component is mounted
 
   return (
     <div className="Register">
@@ -65,6 +67,10 @@ function Register() {
           onChange={handleChange}
           id="email"
         />
+      </div>
+      {/* Add other form fields here */}
+      <div>
+        <input type="checkbox" required /> I agree to the terms and conditions.
       </div>
       <button className="register-info" id="submit">
         Register
