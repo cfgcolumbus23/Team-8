@@ -6,7 +6,8 @@ import Lessons from "./pages/Lessons/Lessons"
 import Dashboard from './pages/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LogIn from './pages/LogIn';
-import Survey from './pages/Survey'
+import Survey from './pages/Survey';
+import Main from './main';
 
 
 
@@ -38,17 +39,6 @@ const topic2 = {
   }]
 };
 
-// const list = [{
-//   title: "Lesson 1",
-//   description: "This is the description",
-//   id: "dsf"
-// }]
-
-// const topic2 = {
-//   name: "topic2",
-//   lessons: ["leson1", "lesson2", "lesson3"]
-// };
-
 const tempTopics = [topic1, topic2];
 
 function App() {
@@ -59,16 +49,6 @@ function App() {
 
     console.log("this ran");
     console.log(userData);
-
-    // if (!userData)
-    //   return; 
-
-    // if (userData.is_admin) {
-    //   redirect('./dashboard')
-    //   return;
-    // } 
-
-    // redirect('./lessons')
 
   }, [userData]);
 
@@ -87,6 +67,7 @@ function App() {
           <Route path="/Survey" element={<Survey topics={tempTopics}/>}/>
           <Route path="/Dashboard" element={Dashboard()}/>
           <Route path="/Lessons" element={<Lessons topics={tempTopics}/>}/>
+          <Route path="/" element={<Main />} />
         </Routes>
         </body>
     </>
