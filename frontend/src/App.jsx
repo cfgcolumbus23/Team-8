@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LogIn from './pages/LogIn';
 import Survey from './pages/Survey';
-import Main from './main';
+// import Main from './main';
 import { LessonView } from "./components/Lesson/LessonView";
 
 const topic1 = {
@@ -99,7 +99,7 @@ function App() {
           <Route path="/Lessons/:topic_id/:lesson_id" element={<LessonView  userData={userData} topics={tempTopics}/>}/>
 
           {/* <Route path="/Lessons/Lesson" element={<Lessons topics={tempTopics}/>}/> */}
-          <Route path="/" element={<Main />} />
+          {/* <Route path="/" element={<Main />} /> */}
         </Routes>
         </body>
     </>
