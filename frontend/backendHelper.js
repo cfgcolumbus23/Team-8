@@ -1,27 +1,33 @@
-import fetch from 'node-fetch';
+const axios = require('axios');
 
-const BASE_URL = 'http://localhost:3000';
+const baseURL = 'https://localhost:3000'; // Replace with your API base URL
 
-async function backendRequest(route, method, data) {
-  const url = `${BASE_URL}${route}`;
+const instance = axios.create({
+  baseURL,
+});
 
+// make a GET request
+async function get(endpoint, params = {}) {
   try {
-    const response = await fetch(url, {
-      method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: data ? JSON.stringify(data) : undefined,
-    });
-
-    if (!response.ok) {
-      throw new Error('backend request failed');
-    }
-
-    return response.json();
+    const response = await instance.get(endpoint, { params });
+    return response.data;
   } catch (error) {
     throw error;
   }
 }
 
-export default backendRequest;
+// make a PUT request
+async function put(endpoint, data = {}) {
+  try {
+    const response = await instance.put(endpoint, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+module.exports = {
+  get,
+  put,
+};
+
