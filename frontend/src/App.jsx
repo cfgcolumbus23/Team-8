@@ -80,8 +80,7 @@ function App() {
 
   return (
     <>
-      <div>
-        <NavBar/>
+      <NavBar/>
         <body>
         <Routes>
           <Route path="/Login" element={<LogIn loginHandler={ loginHander }/>}/>
@@ -90,7 +89,6 @@ function App() {
           <Route path="/Lessons" element={<Lessons topics={tempTopics}/>}/>
         </Routes>
         </body>
-      </div>
     </>
   )
 }
