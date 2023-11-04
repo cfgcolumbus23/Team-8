@@ -35,6 +35,16 @@ class ProgressAccessor {
 
     }
 
+    static async getAll() {
+
+        let result = await db.query("SELECT * FROM progress;");
+    
+        // let data = await db.query(`INSERT into progress (email, topic_id, lesson_id) VALUES ($1, $2, $3) RETURNING lesson_id;`, [email, topic_id, lesson_id]);
+
+        return result.rows;
+
+    }
+
     // static async delete(id) {
 
     //     await db.query(createLessonTable);

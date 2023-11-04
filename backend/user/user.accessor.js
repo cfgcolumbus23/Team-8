@@ -85,6 +85,30 @@ class UserAccessor {
                 throw error;
             }
     }
+
+    static async getAll() {
+
+        await db.query(createUserTable);
+
+        try {
+
+            const loginQuery = ` SELECT * FROM user_info;`;
+
+            // const values = [email];
+            const result = await db.query(loginQuery);
+
+            // // catch if user not found
+            // if (result.rows.length === 0) {
+            //     throw new Error('user not found');
+            //   }
+
+            return result.rows;
+
+            // return result.rows[0];
+            } catch (error) {
+                throw error;
+            }
+    }
 }
 
 module.exports = {

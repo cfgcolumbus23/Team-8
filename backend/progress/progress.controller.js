@@ -18,7 +18,7 @@ class ProgressController {
         res.send(data);
 
         } catch (e) {
-            res.status(500).send({ error: true});
+            res.status(500).send({ error: true});
         }
     }
 
@@ -26,7 +26,6 @@ class ProgressController {
 
         try {
 
-     
 
         console.log(req.body);
 
@@ -37,7 +36,27 @@ class ProgressController {
         res.send({ success: true  });
 
         } catch (e) {
-            res.status(500).send({ error: true});
+            res.status(500).send({ error: true});
+        }
+    }
+
+    static async handleGetAll(req, res) {
+
+        try {
+
+
+        // console.log(req.body);
+
+        // const { email, topic_id, lesson_id }  = req.body;
+
+        let result = await ProgressAccessor.getAll();
+
+        
+
+        res.send(result);
+
+        } catch (e) {
+            res.status(500).send({ error: true});
         }
     }
     

@@ -13,6 +13,18 @@ class UserController {
         }
     }
 
+    static async getAll(req, res) {
+      try {
+          // take in user info as a JSON body
+          // const user = req.body;
+          const result = await UserAccessor.getAll();
+          res.json(result);
+      } catch (error) {
+          console.error('error adding user:', error);
+          res.status(500).json({ error: 'an error occurred' });
+      }
+    }
+
     static async loginUser(req, res) {
         try {
           const user = req.body;
