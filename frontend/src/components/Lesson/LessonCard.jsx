@@ -15,13 +15,13 @@ export function LessonCard(props) {
          {props.lesson_name}
         </Typography>
         <CardActions sx={{ p: 0 }}>
-          <Button size="small" onClick={() => {
+          <Button size="small" sx={{ color: `${props.isCompleted ? 'green' : 'blue'}` }} onClick={() => {
 
             console.log("redirect started");
 
-            navigate(`./${props.topic_id}/${props.lesson_id}`);
+            navigate(`/Lessons/${props.topic_id}/${props.lesson_id}`);
 
-          }}>Start</Button>
+          }}>{props.isCompleted ? "Completed" : "Start"}</Button>
         </CardActions>
       </CardContent>
     </Card>

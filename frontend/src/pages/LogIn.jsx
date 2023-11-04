@@ -44,12 +44,12 @@ function LogIn(props) {
 
     props.loginHandler(data);
 
-    // if (data.is_admin) {
-    //   redirect('./dashboard');
-    //   return;
-    // }
+    if (data.is_admin) {
+      redirect('/dashboard');
+      return;
+    }
 
-    // redirect('./lessons')
+    redirect('/lessons');
      
 
 

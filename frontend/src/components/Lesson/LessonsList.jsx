@@ -13,7 +13,7 @@ export function LessonsList(props) {
 
   // const 
   return <>
-  {props.lessons.map(elem => <LessonCard {...elem} />)}
+  {props.lessons.map(elem => <LessonCard {...elem} isCompleted={props.progress.filter(p => p.lesson_id == elem.lesson_id).length > 0}/>)}
   </>
 
 }
