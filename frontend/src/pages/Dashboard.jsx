@@ -142,7 +142,7 @@ function Dashboard() {
                             </Typography>
                             <div>
                                 <label for="topics">Assign Topic: </label>
-                                <select onChange={(e) => setTopicToAdd(topics[e.target.value])}>
+                                <select onChange={(e) => setTopicToAdd(e.target.value > 0 ? topics[e.target.value] : null)}>
                                     {topics.map(topic => (
                                         <option value={topic.id} id={topic.id}>{topic.title}</option>
                                     ))}
