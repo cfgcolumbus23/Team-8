@@ -17,7 +17,6 @@ const NavBar = () => {
                 <Nav.Link href="#Dashboard">Dashboard</Nav.Link>
                 <Nav.Link href="#Lessons">Lessons</Nav.Link>
                 <Nav.Link href="#ProgressPath">Progress Path</Nav.Link>
-                <Nav.Link href="#Profile">Profile</Nav.Link>
                 <LoginRegister auth = {isAuth}/>
               </Nav>
             </Navbar.Collapse>

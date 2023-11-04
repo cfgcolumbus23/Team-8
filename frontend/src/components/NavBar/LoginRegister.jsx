@@ -9,7 +9,12 @@ const LoginRegister = (props) => {
             </>
         );
     } else {
-        return <Nav.Link href="#Dashboard">Sign Out</Nav.Link>;
+        return (
+            <>
+                <Nav.Link href="#Profile">Profile</Nav.Link>
+                <Nav.Link href="#Dashboard">Sign Out</Nav.Link>
+            </>
+        );
     }
 }
 
