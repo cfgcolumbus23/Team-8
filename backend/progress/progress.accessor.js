@@ -58,5 +58,5 @@ class ProgressAccessor {
 
 
 module.exports = {
-    LessonAccessor
+    ProgressAccessor
 };
