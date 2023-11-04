@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { redirect, useNavigate } from 'react-router-dom';
 import { mockAdminEmail,mockAdminPassword , mockStudentEmail, mockStudentPassword} from './MockLogin';
 import './LogIn.css'
+import { red } from '@mui/material/colors';
 // Mock email and password
 
 function LogIn(props) {
@@ -31,10 +32,16 @@ function LogIn(props) {
 
     const data = await response.json();
 
-    console.log(data);
+    // console.log(data);
 
     if (data.error)
       return;
+
+    if (data.is_admin) {
+      navigate('/dashboard')
+    } else {
+      navigate('/lessons')
+    }
 
 
     // const { loginHander }

@@ -53,24 +53,24 @@ const tempTopics = [topic1, topic2];
 
 function App() {
 
-  const [userData, setUserData] = useState(false);
+  const [userData, setUserData] = useState(null);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    console.log("this ran");
-    console.log(userData);
+  //   // console.log("this ran");
+  //   // console.log(userData);
 
-    // if (!userData)
-    //   return; 
+  //   // if (!userData)
+  //   //   return; 
 
-    // if (userData.is_admin) {
-    //   redirect('./dashboard')
-    //   return;
-    // } 
+  //   // if (userData.is_admin) {
+  //   //   redirect('./dashboard')
+  //   //   return;
+  //   // } 
 
-    // redirect('./lessons')
+  //   // redirect('./lessons')
 
-  }, [userData]);
+  // }, [userData]);
 
 
 
@@ -81,13 +81,15 @@ function App() {
   return (
     <>
       <div>
-        <NavBar/>
+        
+      <NavBar userData={userData}/>
+        
         <body>
         <Routes>
-          <Route path="/Login" element={<LogIn loginHandler={ loginHander }/>}/>
-          <Route path="/Survey" element={<Survey topics={tempTopics}/>}/>
-          <Route path="/Dashboard" element={Dashboard()}/>
-          <Route path="/Lessons" element={<Lessons topics={tempTopics}/>}/>
+            <Route path="/Login" element={<LogIn loginHandler={ loginHander }/>}/>
+            <Route path="/Dashboard" element={Dashboard()}/>
+            <Route path="/Lessons" element={<Lessons topics={tempTopics}/>}/>
+          {/* <Route path="/Survey" element={<Survey topics={tempTopics}/>}/> */}
         </Routes>
         </body>
       </div>

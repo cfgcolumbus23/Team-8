@@ -6,7 +6,7 @@ import LoginRegister from './LoginRegister'
 
 const isAuth = false; //placeholder
 
-const NavBar = () => {
+const NavBar = (props) => {
     return (
         <Navbar expand="lg">
           <Container>
@@ -14,10 +14,17 @@ const NavBar = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav>
-                <Nav.Link href="Dashboard">Dashboard</Nav.Link>
-                <Nav.Link href="Lessons">Lessons</Nav.Link>
-                <Nav.Link href="ProgressPath">Progress Path</Nav.Link>
-                <LoginRegister auth = {isAuth}/>
+                {
+                  props.userData === null ?
+                  <LoginRegister auth = {isAuth}/> :
+                  props.userData.is_admin ?
+                  <>
+                    <Nav.Link href="Dashboard">Dashboard</Nav.Link>
+                    {/* <Nav.Link href="ProgressPath">Progress Path</Nav.Link> */}
+                  </>
+                  : <Nav.Link href="Lessons">Lessons</Nav.Link>
+                }
+                
               </Nav>
             </Navbar.Collapse>
           </Container>
