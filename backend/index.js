@@ -15,6 +15,9 @@ const { lessonRouter } = require('./lesson/lesson.router');
 
 // });
 
+
+app.use(express.json());
+
 app.use('/lesson', lessonRouter);
 
 
