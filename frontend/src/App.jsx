@@ -5,6 +5,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar"
 import Lessons from "./pages/Lessons/Lessons"
+import Dashboard from './pages/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const topic1 = {
