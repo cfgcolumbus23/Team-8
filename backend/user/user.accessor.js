@@ -19,6 +19,29 @@ class UserAccessor {
                 throw error;
             }
     }
+
+    static async loginUser(user) {
+        try {
+            const { email } = user;
+            
+            // check user_info table for login verification
+            const loginQuery = `
+                SELECT * FROM user_info WHERE email=$1
+                `;
+
+            const values = [email];
+            const result = await db.query(loginQuery, values);
+
+            // catch if user not found
+            if (result.rows.length === 0) {
+                throw new Error('user not found');
+              }
+
+            return result.rows[0];
+            } catch (error) {
+                throw error;
+            }
+    }
 }
 
 module.exports = {
