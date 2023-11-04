@@ -18,7 +18,7 @@ export function LessonDeck(props) {
     </Box> */}
         <Container fixed={true} style={{ boxShadow: '1px' }} sx={{ boxShadow: 2 }}>
             <Typography variant="h3" style={{ textAlign: 'left' }} sx={{ mt: 2 }}>Hello</Typography>
-            <Typography variant="h6" style={{ textAlign: 'left' }}>Description.</Typography>
+            <Typography variant="h6" style={{ textAlign: 'left' }}>Description</Typography>
             <Stack direction="row" spacing={12} sx={{ marginBottom: 2 }}>
                 <Button variant="contained" fullWidth={true}>
                     Back

@@ -7,6 +7,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import { LessonsList } from '../../components/Lesson/LessonsList';
 import { Container } from '@mui/material';
 import { LessonDeck } from '../../components/Lesson/ListDeck';
+import { CreateLesson } from '../../components/Lesson/CreateLesson';
 
 const Lessons = (props) => {
 const topicList = props.topics.map((topic) => 
@@ -17,7 +18,8 @@ const topicList = props.topics.map((topic) =>
 );
     return (
         // <Container>{topicList}</Container>
-        <LessonDeck></LessonDeck>
+        // <LessonDeck></LessonDeck>
+        <CreateLesson/>
     );
 }
 
