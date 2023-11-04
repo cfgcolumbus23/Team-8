@@ -4,6 +4,7 @@ const { TopicAccessor } = require("./topic.accessor");
 class TopicController {
 
     static async handleGetAll(req, res) {
+        
         let data = await TopicAccessor.getAll();
 
         res.send(data);
