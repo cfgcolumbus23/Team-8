@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import { mockAdminEmail,mockAdminPassword , mockStudentEmail, mockStudentPassword} from './MockLogin';
 import './LogIn.css'
 // Mock email and password
 
-function LogIn() {
+function LogIn(props) {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,20 +18,61 @@ function LogIn() {
     setPassword(event.target.value);
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
+
+    
+    const response = await fetch('http://localhost:3000/user/login', { 
+      method: 'POST', 
+      body: JSON.stringify({ 
+        email: username
+      }),
+      headers: {'Content-Type': 'application/json'}
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+    if (data.error)
+      return;
+
+
+    // const { loginHander }
+
+    console.log(props);
+    console.log(props.loginHandler);
+
+    props.loginHandler(data);
+
+    // if (data.is_admin) {
+    //   redirect('./dashboard');
+    //   return;
+    // }
+
+    // redirect('./lessons')
+     
+
+
+
+
+    // await fetch('local')
+
+
+
+
     // Check if the entered username and password match the mock email and password
-    if (username === mockAdminEmail && password === mockAdminPassword) {
-      // Redirect to the dashboard route after successful login
-      navigate('/dashboard');
-    } else {
-      // Handle login failure (e.g., display an error message)
-      if (username === mockStudentEmail && password === mockStudentPassword) {
-        // Redirect to the dashboard route after successful login
-        navigate('/Survey');  
-      } else {
-        setError('Login failed. Please check your email and password.');
-      }
-    }
+    // if (username === mockAdminEmail && password === mockAdminPassword) {
+    //   // Redirect to the dashboard route after successful login
+    //   navigate('/dashboard');
+    // } else {
+    //   // Handle login failure (e.g., display an error message)
+    //   if (username === mockStudentEmail && password === mockStudentPassword) {
+    //     // Redirect to the dashboard route after successful login
+    //     navigate('/Survey');  
+    //   } else {
+    //     setError('Login failed. Please check your email and password.');
+    //   }
+    // }
   };
 
   return (

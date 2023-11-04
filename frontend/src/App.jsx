@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, redirect } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar"
 import Lessons from "./pages/Lessons/Lessons"
 import Dashboard from './pages/Dashboard';
@@ -52,23 +52,43 @@ const topic2 = {
 const tempTopics = [topic1, topic2];
 
 function App() {
+
+  const [userData, setUserData] = useState(false);
+
+  useEffect(() => {
+
+    console.log("this ran");
+    console.log(userData);
+
+    // if (!userData)
+    //   return; 
+
+    // if (userData.is_admin) {
+    //   redirect('./dashboard')
+    //   return;
+    // } 
+
+    // redirect('./lessons')
+
+  }, [userData]);
+
+
+
+  const loginHander = (data) => {
+    setUserData(data);
+  }
+
   return (
     <>
       <div>
         <NavBar/>
         <body>
-        <BrowserRouter>
         <Routes>
-          <Route path="/Login" element={<LogIn topics={tempTopics}/>}/>
+          <Route path="/Login" element={<LogIn loginHandler={ loginHander }/>}/>
           <Route path="/Survey" element={<Survey topics={tempTopics}/>}/>
-        </Routes>
-          <Routes>
-            <Route path="/Dashboard" element={Dashboard()}/>
-          </Routes>
-        <Routes>
+          <Route path="/Dashboard" element={Dashboard()}/>
           <Route path="/Lessons" element={<Lessons topics={tempTopics}/>}/>
         </Routes>
-        </BrowserRouter>
         </body>
       </div>
     </>
