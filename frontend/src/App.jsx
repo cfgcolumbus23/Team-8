@@ -7,6 +7,8 @@ import NavBar from "./components/NavBar/NavBar"
 import Lessons from "./pages/Lessons/Lessons"
 import Dashboard from './pages/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import LogIn from './pages/LogIn';
+
 
 const topic1 = {
   name: "topic1",
@@ -58,6 +60,9 @@ function App() {
         <NavBar/>
         <body>
         <BrowserRouter>
+        <Routes>
+          <Route path="/Login" element={<LogIn topics={tempTopics}/>}/>
+        </Routes>
           <Routes>
             <Route path="/Dashboard" element={Dashboard()}/>
           </Routes>
