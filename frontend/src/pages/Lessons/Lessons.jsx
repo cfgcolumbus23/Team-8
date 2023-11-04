@@ -3,7 +3,6 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Button from '@mui/material/Button'
-// import LessonTemplate from './LessonTemplate/LessonTemplate'
 
 import { LessonsList } from '../../components/Lesson/LessonsList';
 import { Container } from '@mui/material';
