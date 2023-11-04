@@ -2,17 +2,22 @@ import React from 'react'
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import LessonTemplate from './LessonTemplate/LessonTemplate'
+// import LessonTemplate from './LessonTemplate/LessonTemplate'
+
+import { LessonsList } from '../../components/Lesson/LessonsList';
+import { Container } from '@mui/material';
+import { LessonDeck } from '../../components/Lesson/ListDeck';
 
 const Lessons = (props) => {
 const topicList = props.topics.map((topic) => 
     <Accordion>
         <AccordionSummary>{topic.name}</AccordionSummary>
-        <AccordionDetails>{<LessonTemplate lessons = {topic.lessons}/>}</AccordionDetails>
+        <AccordionDetails>{<LessonsList lessons={topic.lessons} />}</AccordionDetails>
     </Accordion>
 );
     return (
-        <div>{topicList}</div>
+        // <Container>{topicList}</Container>
+        <LessonDeck></LessonDeck>
     );
 }
 
