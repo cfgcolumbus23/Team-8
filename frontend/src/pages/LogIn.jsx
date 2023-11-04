@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  // BrowserRouter as Router,
-  BrowserRouter,
-  Link,
-  Route,
-  Routes
-} from 'react-router-dom'
 
 function LogIn() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -22,22 +15,17 @@ function LogIn() {
   };
 
   const handleLogin = () => {
-
-    navigate('/StudentPortal');
-
     // You can add your login logic here
     console.log('Username:', username);
     console.log('Password:', password);
 
-    // Redirect to the dashboard page
+    // Redirect to the dashboard route after successful login
+    navigate('/dashboard');
   };
 
   return (
     <div className="LogIn">
-   
-        
-
-        <h1>Login</h1>
+      <h1>Login</h1>
       <div>
         <label>Username:</label>
         <input
@@ -54,7 +42,7 @@ function LogIn() {
           onChange={handlePasswordChange}
         />
       </div>
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogin}>Log In</button>
     </div>
   );
 }
