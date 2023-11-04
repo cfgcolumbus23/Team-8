@@ -1,18 +1,19 @@
 import { Container, Card, CardContent, Typography } from "@mui/material"
 import { LessonCard } from "./LessonCard"
 
-export function LessonsPage(props) {
+export function LessonsList(props) {
 
-  const list = [{
-    title: "Lesson 1",
-    description: "This is the description",
-  }]
+  // const list = [{
+  //   title: "Lesson 1",
+  //   description: "This is the description",
+  //   id: "dsf"
+  // }]
 
   
 
   // const 
   return <>
-  {list.map(elem => <LessonCard {...elem} />)}
+  {props.lessons.map(elem => <LessonCard {...elem} />)}
   </>
 
 }

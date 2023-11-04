@@ -10,13 +10,42 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const topic1 = {
   name: "topic1",
-  lessons: ["leson1", "lesson2", "lesson3"]
+  lessons: [{
+    title: "Lesson 1",
+    description: "This is the description",
+    id: "temp"
+  },
+  {
+    title: "Lesson 2",
+    description: "This is the description",
+    id: "temp"
+  }]
 };
 
 const topic2 = {
   name: "topic2",
-  lessons: ["leson1", "lesson2", "lesson3"]
+  lessons: [{
+    title: "Lesson 1",
+    description: "This is the description",
+    id: "temp"
+  },
+  {
+    title: "Lesson 2",
+    description: "This is the description",
+    id: "temp"
+  }]
 };
+
+// const list = [{
+//   title: "Lesson 1",
+//   description: "This is the description",
+//   id: "dsf"
+// }]
+
+// const topic2 = {
+//   name: "topic2",
+//   lessons: ["leson1", "lesson2", "lesson3"]
+// };
 
 const tempTopics = [topic1, topic2];
 
@@ -33,7 +62,7 @@ function App() {
             <Route path="/Dashboard" element={Dashboard()}/>
           </Routes>
         <Routes>
-          <Route path="/Lessons" element={<Lessons topics = {tempTopics}/>}/>
+          <Route path="/Lessons" element={<Lessons topics={tempTopics}/>}/>
         </Routes>
         </BrowserRouter>
         </body>
