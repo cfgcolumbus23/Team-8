@@ -14,12 +14,12 @@ const createProgressTable = `
 
 class ProgressAccessor {
 
-    static async getCompletedLessons(email) {
+    static async postCompletedLessons(email) {
 
         await db.query(createProgressTable);
     
         
-        let data = await db.query(`SELECT * from progress where email = '$1';`, [email]);
+        let data = await db.query(`SELECT * from progress where email = $1;`, [email]);
 
         return data.rows;
     
@@ -29,7 +29,7 @@ class ProgressAccessor {
 
         await db.query(createProgressTable);
     
-        let data = await db.query(`INSERT into progress (email, lesson_id, score) VALUES ($1, $2,) RETURNING lesson_id;`, [email, lesson_id, score]);
+        let data = await db.query(`INSERT into progress (email, lesson_id, score) VALUES ($1, $2, $3) RETURNING lesson_id;`, [email, lesson_id, score]);
 
         return data.rows[0];
 

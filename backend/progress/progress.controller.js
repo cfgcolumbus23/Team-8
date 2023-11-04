@@ -4,11 +4,11 @@ const { ProgressAccessor } = require("./progress.accessor");
 
 class ProgressController {
 
-    static async handleGetCompleted(req, res) {
+    static async handlePostCompleted(req, res) {
 
         const { email }  = req.body;
 
-        let data = await ProgressAccessor.getCompletedLessons(email);
+        let data = await ProgressAccessor.postCompletedLessons(email);
 
         res.send(data);
 
@@ -16,14 +16,11 @@ class ProgressController {
 
     static async handlePut(req, res) {
 
+        console.log(req.body);
+
         const { email, lesson_id, score }  = req.body;
 
-
         await ProgressAccessor.put(email, lesson_id, score);
-
-        const { name, body } = req.body;
-
-        let result = await ProgressAccessor.put(name, body);
 
         res.send(result);
 
