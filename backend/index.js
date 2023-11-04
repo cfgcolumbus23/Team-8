@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
@@ -7,9 +8,10 @@ const {topicRouter} = require('./topic/topic.router');
 
 const { userRouter } = require('./user/user.router');
 
+app.use(cors());
 app.use(express.json());
 app.use('/user', userRouter);
-app.use('/login', userRouter);
+// app.use('/login', userRouter);
 
 app.listen(port, async () => {
   console.log(`Example app listening at http://localhost:${port}`);

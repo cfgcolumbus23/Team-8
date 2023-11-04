@@ -31,6 +31,27 @@ class UserController {
           res.status(500).json({ error: 'an error occurred' });
         }
       }
+
+
+    static async postUser(req, res) {
+      try {
+        const user = req.body;
+        const loggedInUser = await UserAccessor.getUser(user);
+    
+        // check if the login was successful (user found)
+        if (loggedInUser) {
+          // successful login -> redirect to the dashboard
+          res.send(loggedInUser);
+        } else {
+          // unsuccessful login (user not found) -> redirect to the login page
+          // res.redirect('/login');
+          res.send({ error: true });
+        }
+      } catch (error) {
+        console.error('error during login:', error);
+        res.status(500).json({ error: 'an error occurred' });
+      }
+    }
       
 }
 
